@@ -4,7 +4,7 @@ import { useTheme } from "next-themes";
 const ThemeToggler = () => {
   const { theme, setTheme } = useTheme();
 
-  setTheme("dark")
+  return setTheme("dark")
 
 };
 
