@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { NavConnectButton } from "../connect-button/NavConnectButton.jsx";
-import ThemeToggler from "./ThemeToggler";
+
 import menuData from "./menuData";
 
 const Header = () => {
@@ -152,7 +152,6 @@ const Header = () => {
           </nav>
 
           <div className="mt-7 flex items-center gap-6 xl:mt-0">
-            <ThemeToggler />
 
             <NavConnectButton />
           </div>
