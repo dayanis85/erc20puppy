@@ -25,10 +25,10 @@ const SingleBrand = ({ brand }: { brand: Brand }) => {
         transition={{ duration: 1, delay: id }}
         viewport={{ once: true }}
         href={href}
-        className="animate_top mx-w-full relative block h-10 w-[98px]"
+        className="animate_top mx-w-full relative block h-15 w-[250px]"
       >
         <Image
-          className="opacity-65 transition-all duration-300 hover:opacity-100"
+          className="opacity-25 transition-all duration-300 hover:opacity-100"
           src={image}
           alt={name}
           fill

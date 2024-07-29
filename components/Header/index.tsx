@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { NavConnectButton } from "../connect-button/NavConnectButton.jsx";
-
+import "./header.css"
 import menuData from "./menuData";
 
 const Header = () => {
@@ -39,20 +39,14 @@ const Header = () => {
         <div className="flex w-full items-center justify-between xl:w-1/4">
           <a href="/">
             <Image
-              src="/images/logo/logo-dark.svg"
+              src="/images/logo.png"
               alt="logo"
-              width={119.03}
-              height={30}
-              className="hidden w-full dark:block"
-            />
-            <Image
-              src="/images/logo/logo-light.svg"
-              alt="logo"
-              width={119.03}
-              height={30}
-              className="w-full dark:hidden"
+              width={119}
+              height={10}
+              className="hidden w-full dark:block "
             />
           </a>
+          <span className="logoname">PuppyCoin</span>
 
           {/* <!-- Hamburger Toggle BTN --> */}
           <button
