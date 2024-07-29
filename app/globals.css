@@ -132,13 +132,15 @@ pre {
 }
 .box-container {
   margin-top: 100px;
-  background-color: rgba(0, 0, 0, 0.504);
-  width: 70%;
+  background-color:dark;
+  width: 80%;
   height: 400px;
   position: relative;
-  border: 1rem;
-  border-color: #ffc300;
-  border-radius: 30px;
+  border: 1px solid #ffc300;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0,0.0,0.5);
+  
+  
 }
 
 .enter-wallet-address {

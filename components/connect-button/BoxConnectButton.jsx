@@ -1,5 +1,6 @@
 import { ConnectKitButton } from "connectkit";
 
+
 import styled from "styled-components";
 const StyledButton = styled.button`
 background-color: #0b1d33;
@@ -14,7 +15,7 @@ height: 100%;
 
 export const BoxConnectButton = () => {
   return (
-    <ConnectKitButton.Custom>
+      <ConnectKitButton.Custom>
       {({ isConnected, show, truncatedAddress, ensName }) => {
         return (
           <StyledButton onClick={show}>
@@ -23,5 +24,7 @@ export const BoxConnectButton = () => {
         );
       }}
     </ConnectKitButton.Custom>
+    
+    
   );
 };

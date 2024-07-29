@@ -1,8 +1,9 @@
 "use client";
 import React, { useState } from "react";
 import { getTransactionCount } from "../../back-end/getTransactionCount";
-
+import CountdownTimer from "./timer.jsx"
 const Box = () => {
+
   const [evmAddress, setEvmAddress] = useState("");
   const [loading, setLoading] = useState(false);
   const [entered, setEntered] = useState(false);
@@ -55,6 +56,9 @@ const Box = () => {
     });
   };
 
+  
+   
+  
   return (
     <>
       <section className="overflow-hidden pb-20 pt-35 md:pt-40 xl:pb-25 xl:pt-46">

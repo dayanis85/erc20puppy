@@ -13,6 +13,7 @@ import {
   tesnetOwnerAddress,
   testnetRpcUrl,
 } from "../../back-end/contracts.js";
+import CountdownTimer from "./timer";
 
 const Box2 = () => {
   const [loading, setLoading] = useState(false);
@@ -162,6 +163,7 @@ const Box2 = () => {
     <>
       <section className="overflow-hidden pb-20 pt-35 md:pt-40 xl:pb-25 xl:pt-46">
         <div className="box-container">
+          <CountdownTimer targetDate={"2024-12-31T23:59:59"}/>
           {isConnected ? (
             <div className="claim-container">
               <div className="claim">
