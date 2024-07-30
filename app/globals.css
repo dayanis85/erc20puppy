@@ -133,12 +133,12 @@ pre {
 .box-container {
   margin-top: 100px;
   background-color:dark;
-  width: 80%;
+  width: 85%;
   height: 400px;
   position: relative;
-  border: 1px solid #ffc300;
+  border: 1px solid rgb(0 107 255 / var(--tw-text-opacity));
   border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0,0.0,0.5);
+  box-shadow: 0 4px 24px -6px rgb(0 107 255 / var(--tw-text-opacity));
   
   
 }
@@ -155,9 +155,9 @@ pre {
 }
 
 .enter-wallet-address-button {
-  background-color: #0b1d33;
-  border: solid;
-  border-color: #00c4f4;
+  background-color: dark;
+  border: solid ;
+  border-color: rgb(0 107 255 / var(--tw-text-opacity));
   color: white;
   width: 15%;
   border-radius: 10px;
@@ -165,12 +165,13 @@ pre {
 }
 
 .enter-wallet-address-input {
-  background-color: #0b1d33;
+  background-color: dark;
   border: solid;
-  border-color: #00c4f4;
+  border-color:rgb(0 107 255 / var(--tw-text-opacity));
   width: 75%;
   height: 100%;
   color: white;
+  outline: none;
 }
 
 .claim-container {
@@ -192,9 +193,9 @@ pre {
 }
 
 .claim-b {
-  background-color: #0b1d33;
+  background-color: dark;
   border: solid;
-  border-color: #00c4f4;
+  border-color: rgb(0 107 255 / var(--tw-text-opacity));
   color: white;
   border-radius: 10px;
   width: 100%;
@@ -203,13 +204,13 @@ pre {
 
 .claim-p {
   height: 20%;
-  color: #00c4f4;
+  color: rgb(0 107 255 / var(--tw-text-opacity));
   font-size: 10px;
   padding-left: 12px;
 }
 
 .loading-icon {
-  border: 4px solid rgba(255, 255, 255, 0.1);
+  border: 4px solid rgb(0 107 255 / var(--tw-text-opacity));
   border-left-color: #ffffff;
   border-radius: 50%;
   width: 16px;
@@ -240,7 +241,7 @@ pre {
 
 .referral-p {
   height: 20%;
-  color: #00c4f4;
+  color: rgb(0 107 255 / var(--tw-text-opacity));
   font-size: 10px;
   padding-left: 12px;
 }
@@ -254,22 +255,23 @@ pre {
 }
 
 .referral {
-  background-color: #0b1d33;
+  background-color: transparent;
   border: solid;
-  border-color: #00c4f4;
+  border-color: rgb(0 107 255 / var(--tw-text-opacity));
   color: white;
   border-radius: 10px;
   width: 100%;
   height: 100%;
   padding-left: 100px;
+  outline: none;
 }
 
 .referral-button {
   position: absolute;
   left: 20px;
-  background-color: #0b1d33;
+  background: dark;
   border: solid;
-  border-color: #00c4f4;
+  border-color: rgb(0 107 255 / var(--tw-text-opacity));
   color: white;
   height: 100%;
   border-left: none;

@@ -3,8 +3,8 @@ export default function Head() {
     <>
       <title> Puppy Coin </title>
       <meta content="width=device-width, initial-scale=1" name="viewport" />
-      <meta name="description" content="Built with Next.js and TypeScript" />
-      <link rel="icon" href="/images/favicon.ico" />
+      <meta name="description" content="PuppyCoin on Arbitrum" />
+      <link rel="icon" href="icons" />
     </>
   );
 }

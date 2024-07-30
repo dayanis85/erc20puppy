@@ -1,10 +1,38 @@
 .datee{
-    color:  #ffc300;
-    font-size: 70px;
-    margin-top: 140px;
     align-items: center;
+    padding-top: 80px;
+    font-size: 40px;
     text-align: center;
-    text-shadow: black;
-    font-family:  cursive; 
-}
+    display: flex;
+    justify-content: center;
+    
 
+}
+.bibb{
+    border: solid;
+    border-color: rgb(0 107 255 / var(--tw-text-opacity));
+    border-radius: 5px;
+    box-sizing: border-box;
+    box-shadow: black;
+    padding: 15px 10px;
+    margin: 5px;
+    font-family: cursive;
+    color: white;
+
+}
+.txtt{
+    text-align: center;
+    font-size: 25px;
+    font-family: cursive;
+    color: white;
+}
+.titleoftimer{
+    color: white;
+    font-size: 40px;
+    text-align: center;
+    font-family: "Poppins";
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+    
+}

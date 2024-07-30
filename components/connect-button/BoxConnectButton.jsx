@@ -3,9 +3,9 @@ import { ConnectKitButton } from "connectkit";
 
 import styled from "styled-components";
 const StyledButton = styled.button`
-background-color: #0b1d33;
-border: solid;
-border-color: #00c4f4;
+background-color: dark;
+border:solid;
+border-color: rgb(0 107 255 / var(--tw-text-opacity));
 color: white;
 border-radius: 10px;
 width: 40%;

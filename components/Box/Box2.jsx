@@ -163,6 +163,9 @@ const Box2 = () => {
     <>
       <section className="overflow-hidden pb-20 pt-35 md:pt-40 xl:pb-25 xl:pt-46">
         <div className="box-container">
+          <span className="titleoftimer">
+            You can claim your rewards in:
+          </span>
           <CountdownTimer targetDate={"2024-12-31T23:59:59"}/>
           {isConnected ? (
             <div className="claim-container">

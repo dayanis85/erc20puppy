@@ -37,11 +37,23 @@ const CountdownTimer = ( {targetDate} ) => {
 
   return (
     <div>
-      <div className='datee'>
+      <div >
         {timeLeft.days !== undefined ? (
-            <p className='.datee'>
-            {formatTime(timeLeft.days)}:{formatTime(timeLeft.hours)}:
-            {formatTime(timeLeft.minutes)}:{formatTime(timeLeft.seconds)}
+            <p>
+              <div className='datee'>
+              <span className='bibb'>{formatTime(timeLeft.days)}
+                </span>:
+              <span className='bibb'>{formatTime(timeLeft.hours)}
+                </span>:
+              <span className='bibb'>{formatTime(timeLeft.minutes)}
+                </span>:
+              <span className='bibb'>{formatTime(timeLeft.seconds)}
+              </span>
+              </div>
+              <div className='txtt'>
+                <span>Days ,  hours , minutes , sec</span>
+              </div>
+              
           </p>
         ) : (
           <span>Time's up!</span>
