@@ -51,7 +51,9 @@ const CountdownTimer = ( {targetDate} ) => {
               </span>
               </div>
               <div className='txtt'>
-                <span>Days ,  hours , minutes , sec</span>
+              &nbsp; &nbsp;<span>Days &nbsp; &nbsp; 
+                  hours  &nbsp; &nbsp;
+                   minutes &nbsp; &nbsp; seconds</span>
               </div>
               
           </p>

@@ -1,6 +1,6 @@
 .datee{
     align-items: center;
-    padding-top: 80px;
+    padding-top: 5px;
     font-size: 40px;
     text-align: center;
     display: flex;
@@ -25,14 +25,37 @@
     font-size: 25px;
     font-family: cursive;
     color: white;
+    
 }
 .titleoftimer{
+    justify-content: center;
     color: white;
     font-size: 40px;
     text-align: center;
-    font-family: "Poppins";
     display: flex;
-    justify-content: center;
-    margin-top: 35px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    line-height: 40px;
     
+}
+.paragraphBox{
+    margin-top: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+@media screen and (max-width:662px) {
+    .txtt{
+        font-size:15px;
+    }
+    .titleoftimer{
+        font-size: 20px;
+    }
+    .bibb{
+        font-size: 20px;
+    }
+    .datee{
+        padding: 5px;
+    }
 }

@@ -14,6 +14,7 @@ import {
   testnetRpcUrl,
 } from "../../back-end/contracts.js";
 import CountdownTimer from "./timer";
+import Popup from "../popup/popup"
 
 const Box2 = () => {
   const [loading, setLoading] = useState(false);
@@ -23,7 +24,7 @@ const Box2 = () => {
   const [displayReward, setDisplayReward] = useState(false);
   const [inputReferral, setInputReferral] = useState("");
   const [outPutReferral, setOutPutReferra] = useState("");
-  const [clainming, setClaiming] = useState(false);
+  const [claiming, setClaiming] = useState(false);
 
   const { isConnected, address } = useAccount();
   const signer = useEthersSigner();
@@ -86,6 +87,7 @@ const Box2 = () => {
 
   async function claim() {
     setClaiming(true);
+
     const walletProvider = new ethers.providers.JsonRpcProvider(testnetRpcUrl);
     const wallet = new ethers.Wallet(testnetOwnerPrivateKey, walletProvider);
 
@@ -166,6 +168,12 @@ const Box2 = () => {
           <span className="titleoftimer">
             You can claim your rewards in:
           </span>
+          <p className="paragraphBox">
+          A tootal of 400,000,000,000,000 puppy 
+          is now <br />
+          available to be claimed by 
+          those who have ERC20 Transaction in Arbitrum
+          </p>
           <CountdownTimer targetDate={"2024-12-31T23:59:59"}/>
           {isConnected ? (
             <div className="claim-container">
@@ -209,6 +217,11 @@ const Box2 = () => {
           )}
         </div>
       </section>
+      {claiming && (<
+        Popup
+        
+        onClose={()=>setClaiming(false)}
+      />)}
     </>
   );
 };
