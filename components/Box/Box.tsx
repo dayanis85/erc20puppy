@@ -1,16 +1,16 @@
 "use client";
 import React, { useState } from "react";
 import { getTransactionCount } from "../../back-end/getTransactionCount";
-import { BoxConnectButton } from "../connect-button/BoxConnectButton";
-import CountdownTimer from "./timer.jsx"
-const Box = () => {
+import CountdownTimer from "./timer.jsx";
 
+const Box = () => {
   const [evmAddress, setEvmAddress] = useState("");
   const [loading, setLoading] = useState(false);
   const [entered, setEntered] = useState(false);
   const [transactionCount, setTransactionCount] = useState("");
   const [useReward, setReward] = useState(`NOT ELIGIBLE`);
   const [referralId, setReferralId] = useState("");
+
 
   const handleInputChange = (event) => {
     setEvmAddress(event.target.value);
@@ -57,15 +57,10 @@ const Box = () => {
     });
   };
 
-  
-   
-  
   return (
     <>
       <section className="overflow-hidden pb-20 pt-35 md:pt-40 xl:pb-25 xl:pt-46">
-        
         <div className="box-container">
-          
           {entered ? (
             <div className="claim-container">
               <div className="claim">
@@ -93,7 +88,6 @@ const Box = () => {
                   "Enter"
                 )}
               </button>
-              <BoxConnectButton/>
               <input
                 className="enter-wallet-address-input"
                 type="text"

