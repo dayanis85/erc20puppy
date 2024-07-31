@@ -14,14 +14,13 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    // <Web3Provider>
-    
+    <>
       <main> 
-        <Box2 />
+        {/* <Box2 /> */}
         <Brands />
         <FunFact />
         <Integration />        
       </main>
-    // </Web3Provider>
+      </>
   );
 }
