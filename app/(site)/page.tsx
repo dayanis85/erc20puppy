@@ -8,7 +8,7 @@ import { Web3Provider } from "../../components/connect-button/connectKit.config"
 export const metadata: Metadata = {
   title: "PuppyCoin on Arbitrum",
   description: "",
-  icons: "/logo.png",
+  icons: "./logo.png",
   // other metadata
 };
 
@@ -17,8 +17,8 @@ export default function Home() {
     <>
       <main>
         <Box2 />
-        <Brands />
         <FunFact />
+        <Brands />
         <Integration />
       </main>
     </>

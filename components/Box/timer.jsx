@@ -1,10 +1,7 @@
+import React, { useState, useEffect } from "react";
+import "./timer.css";
 
-import React, { useState, useEffect } from 'react';
-import "./timer.css"
-
-
-
-const CountdownTimer = ( {targetDate} ) => {
+const CountdownTimer = ({ targetDate }) => {
   const calculateTimeLeft = () => {
     const difference = new Date(targetDate) - new Date();
     let timeLeft = {};
@@ -14,7 +11,7 @@ const CountdownTimer = ( {targetDate} ) => {
         days: Math.floor(difference / (1000 * 60 * 60 * 24)),
         hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
         minutes: Math.floor((difference / 1000 / 60) % 60),
-        seconds: Math.floor((difference / 1000) % 60)
+        seconds: Math.floor((difference / 1000) % 60),
       };
     }
 
@@ -32,30 +29,32 @@ const CountdownTimer = ( {targetDate} ) => {
   }, [timeLeft]);
 
   const formatTime = (time) => {
-    return String(time).padStart(2, '0');
+    return String(time).padStart(2, "0");
   };
 
   return (
     <div>
-      <div >
+      <div>
         {timeLeft.days !== undefined ? (
-            <p>
-              <div className='datee'>
-              <span className='bibb'>{formatTime(timeLeft.days)}
-                </span>:
-              <span className='bibb'>{formatTime(timeLeft.hours)}
-                </span>:
-              <span className='bibb'>{formatTime(timeLeft.minutes)}
-                </span>:
-              <span className='bibb'>{formatTime(timeLeft.seconds)}
-              </span>
+          <p>
+            <div className="datee">
+              <div className="bibb-container">
+                <span className="bibb">{formatTime(timeLeft.days)}</span>{" "}
+                <p className="date">Days</p>
               </div>
-              <div className='txtt'>
-              &nbsp; &nbsp;<span>Days &nbsp; &nbsp; 
-                  hours  &nbsp; &nbsp;
-                   minutes &nbsp; &nbsp; seconds</span>
+              <div className="bibb-container">
+                <span className="bibb">{formatTime(timeLeft.hours)}</span>{" "}
+                <p className="date">Hours</p>
               </div>
-              
+              <div className="bibb-container">
+                <span className="bibb">{formatTime(timeLeft.minutes)}</span>{" "}
+                <p className="date">Minutes</p>
+              </div>
+              <div className="bibb-container">
+                <span className="bibb">{formatTime(timeLeft.seconds)}</span>{" "}
+                <p className="date">Seconds</p>
+              </div>
+            </div>
           </p>
         ) : (
           <span>Time's up!</span>

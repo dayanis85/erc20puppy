@@ -132,15 +132,14 @@ pre {
 }
 .box-container {
   margin-top: 100px;
-  background-color:dark;
+  background-color: dark;
   width: 85%;
+  max-width: 1000px;
   height: 400px;
   position: relative;
   border: 1px solid rgb(0 107 255 / var(--tw-text-opacity));
   border-radius: 10px;
   box-shadow: 0 4px 24px -6px rgb(0 107 255 / var(--tw-text-opacity));
-  
-  
 }
 
 .enter-wallet-address {
@@ -156,7 +155,7 @@ pre {
 
 .enter-wallet-address-button {
   background-color: dark;
-  border: solid ;
+  border: solid;
   border-color: rgb(0 107 255 / var(--tw-text-opacity));
   color: white;
   width: 15%;
@@ -167,7 +166,7 @@ pre {
 .enter-wallet-address-input {
   background-color: dark;
   border: solid;
-  border-color:rgb(0 107 255 / var(--tw-text-opacity));
+  border-color: rgb(0 107 255 / var(--tw-text-opacity));
   width: 75%;
   height: 100%;
   color: white;

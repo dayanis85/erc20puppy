@@ -1,68 +1,83 @@
-.datee{
-    align-items: center;
-    padding-top: 5px;
-    font-size: 40px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    
+.datee {
+  align-items: center;
+  padding-top: 5px;
+  font-size: 40px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
 
+.bibb-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 10%;
+  min-width: 70px;
+  margin-right: 2%;
 }
-.bibb{
-    border: solid;
-    border-color: rgb(0 107 255 / var(--tw-text-opacity));
-    border-radius: 5px;
-    box-sizing: border-box;
-    box-shadow: black;
-    padding: 15px 10px;
-    margin: 5px;
-    font-family: cursive;
-    color: white;
+.bibb {
+  border: solid;
+  border-color: rgb(0 107 255 / var(--tw-text-opacity));
+  border-radius: 5px;
+  box-sizing: border-box;
+  box-shadow: black;
+  padding: 15px 10px;
+  margin: 5px;
+  font-family: cursive;
+  color: white;
+  width: 100%;
+  height: 80%;
+  font-size: 70%;
+}
 
+.date {
+  display: flex;
+  justify-content: center;
+  height: 20%;
+  font-size: 15px;
+  padding-left: 15px;
+  margin-top: 5px;
 }
-.txtt{
-    text-align: center;
-    font-size: 25px;
-    font-family: cursive;
-    color: white;
-    
+
+.txtt {
+  text-align: center;
+  font-size: 70%;
+  font-family: cursive;
+  color: white;
 }
-.titleoftimer{
-    justify-content: center;
-    color: white;
-    font-size: 40px;
-    text-align: center;
-    display: flex;
-    margin-top: 25px;
-    margin-bottom: 10px;
-    line-height: 40px;
-    background-color: blue;
-    background-image: linear-gradient(270deg,white,rgb(0 107 255 / var(--tw-text-opacity)),white);
-    background-size: 100%;
-    background-repeat: repeat;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; 
-    
-    
+.titleoftimer {
+  justify-content: center;
+  color: white;
+  font-size: 40px;
+  text-align: center;
+  display: flex;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  line-height: 40px;
+  background-color: blue;
+  background-image: linear-gradient(
+    270deg,
+    white,
+    rgb(0 107 255 / var(--tw-text-opacity)),
+    white
+  );
+  background-size: 100%;
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
-.paragraphBox{
-    margin-top: 20px;
-    text-align: center;
-    margin-bottom: 30px;
-    margin-right: 5px;
-    margin-left: 5px;
+.paragraphBox {
+  margin-top: 20px;
+  text-align: center;
+  margin-bottom: 30px;
+  margin-right: 5px;
+  margin-left: 5px;
 }
-@media screen and (max-width:662px) {
-    .txtt{
-        font-size:15px;
-    }
-    .titleoftimer{
-        font-size: 20px;
-    }
-    .bibb{
-        font-size: 20px;
-    }
-    .datee{
-        padding: 5px;
-    }
+@media screen and (max-width: 662px) {
+  .titleoftimer {
+    font-size: 20px;
+  }
+  .datee {
+    padding: 5px;
+  }
 }
