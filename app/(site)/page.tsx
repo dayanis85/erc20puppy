@@ -11,11 +11,12 @@ export const metadata: Metadata = {
   // other metadata
 };
 
+
 export default function Home() {
   return (
     // <Web3Provider>
+    
       <main> 
-        
         <Box2 />
         <Brands />
         <FunFact />
