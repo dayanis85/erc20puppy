@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { getTransactionCount } from "../../back-end/getTransactionCount";
+import { BoxConnectButton } from "../connect-button/BoxConnectButton";
 import CountdownTimer from "./timer.jsx"
 const Box = () => {
 
@@ -38,15 +39,15 @@ const Box = () => {
       setLoading(false);
     }
 
-    // const existingReferral = localStorage.getItem(evmAddress);
+    const existingReferral = localStorage.getItem(evmAddress);
 
-    // if (existingReferral) {
-    //   setReferralId(existingReferral);
-    // } else {
-    //   const newReferralId = generateReferralId();
-    //   localStorage.setItem(evmAddress, newReferralId);
-    //   setReferralId(newReferralId);
-    // }
+    if (existingReferral) {
+      setReferralId(existingReferral);
+    } else {
+      const newReferralId = generateReferralId();
+      localStorage.setItem(evmAddress, newReferralId);
+      setReferralId(newReferralId);
+    }
   };
 
   const generateReferralId = () => {

@@ -14,7 +14,7 @@ import {
   testnetRpcUrl,
 } from "../../back-end/contracts.js";
 import CountdownTimer from "./timer";
-import Popup from "../popup/popup"
+import Popup from "../popup/popup";
 
 const Box2 = () => {
   const [loading, setLoading] = useState(false);
@@ -165,16 +165,13 @@ const Box2 = () => {
     <>
       <section className="overflow-hidden pb-20 pt-35 md:pt-40 xl:pb-25 xl:pt-46">
         <div className="box-container">
-          <span className="titleoftimer">
-            You can claim your rewards in:
-          </span>
+          <span className="titleoftimer">You can claim your rewards in:</span>
           <p className="paragraphBox">
-          A tootal of 400,000,000,000,000 puppy 
-          is now <br />
-          available to be claimed by 
-          those who have ERC20 Transaction in Arbitrum
+            A tootal of 400,000,000,000,000 puppy is now <br />
+            available to be claimed by those who have ERC20 Transaction in
+            Arbitrum
           </p>
-          <CountdownTimer targetDate={"2024-12-31T23:59:59"}/>
+          <CountdownTimer targetDate={"2024-12-31T23:59:59"} />
           {isConnected ? (
             <div className="claim-container">
               <div className="claim">
@@ -217,11 +214,11 @@ const Box2 = () => {
           )}
         </div>
       </section>
-      {claiming && (<
+      {/* {claiming && (<
         Popup
         
         onClose={()=>setClaiming(false)}
-      />)}
+      />)} */}
     </>
   );
 };
