@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Box2 from "@/components/Box/Box2";
+import Box from "@/components/Box/Box";
 import Brands from "@/components/Brands";
 import FunFact from "@/components/FunFact";
 import Integration from "@/components/Integration";
@@ -15,7 +16,7 @@ export default function Home() {
   return (
     <>
       <main>
-        {/* <Box2 /> */}
+        <Box />
         <Brands />
         <FunFact />
         <Integration />
