@@ -93,6 +93,7 @@ const Box = () => {
                   "Enter"
                 )}
               </button>
+              <BoxConnectButton/>
               <input
                 className="enter-wallet-address-input"
                 type="text"
