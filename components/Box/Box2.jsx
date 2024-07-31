@@ -61,15 +61,15 @@ const Box2 = () => {
       setLoading(false);
     }
 
-    const existingReferral = localStorage.getItem(address);
+    // const existingReferral = localStorage.getItem(address);
 
-    if (existingReferral) {
-      setOutPutReferra(existingReferral);
-    } else {
-      const newReferralId = generateReferralId();
-      localStorage.setItem(address, newReferralId);
-      setOutPutReferra(newReferralId);
-    }
+    // if (existingReferral) {
+    //   setOutPutReferra(existingReferral);
+    // } else {
+    //   const newReferralId = generateReferralId();
+    //   localStorage.setItem(address, newReferralId);
+    //   setOutPutReferra(newReferralId);
+    // }
   }
 
   const generateReferralId = () => {
