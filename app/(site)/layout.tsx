@@ -18,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    // <Web3Provider>
+    <Web3Provider>
       <html lang="en" suppressHydrationWarning>
         <body className={`dark:bg-black ${inter.className}`}>
           <ThemeProvider
@@ -29,12 +29,12 @@ export default function RootLayout({
             <Lines />
             <Header />
             <ToasterContext />
-            {children} 
+            {children}
             <Footer />
             <ScrollToTop />
           </ThemeProvider>
         </body>
       </html>
-    // </Web3Provider>
+    </Web3Provider>
   );
 }

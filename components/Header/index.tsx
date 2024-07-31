@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { NavConnectButton } from "../connect-button/NavConnectButton.jsx";
-import "./header.css";
+import "./header.css"
 import menuData from "./menuData";
 
 const Header = () => {
@@ -131,11 +131,13 @@ const Header = () => {
                   ) : (
                     <Link
                       href={`${menuItem.path}`}
+                      
                       className={
                         pathUrl === menuItem.path
                           ? "text-primary hover:text-primary"
                           : "hover:text-primary"
                       }
+                       
                     >
                       {menuItem.title}
                     </Link>
@@ -146,7 +148,8 @@ const Header = () => {
           </nav>
 
           <div className="mt-7 flex items-center gap-6 xl:mt-0">
-            {/* <NavConnectButton /> */}
+
+            <NavConnectButton />
           </div>
         </div>
       </div>
