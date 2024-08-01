@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { getTransactionCount } from "../../back-end/getTransactionCount";
 import CountdownTimer from "./timer.jsx";
+import CopyToClipboard from "react-copy-to-clipboard";
 
 const Box = () => {
   const [evmAddress, setEvmAddress] = useState("");
@@ -10,7 +11,18 @@ const Box = () => {
   const [transactionCount, setTransactionCount] = useState("");
   const [useReward, setReward] = useState(`NOT ELIGIBLE`);
   const [referralId, setReferralId] = useState("");
+  const [innertxt, setinnertxt] = useState("Invite Your Friends");
+  const [copy, setCopy] = useState(false);
 
+  const onCopyTest = () => {
+    setCopy(true);
+    setinnertxt("copied");
+
+    setTimeout(() => {
+      setCopy(false);
+      setinnertxt("Invite Your Friends");
+    }, 2000);
+  };
 
   const handleInputChange = (event) => {
     setEvmAddress(event.target.value);
@@ -61,6 +73,13 @@ const Box = () => {
     <>
       <section className="overflow-hidden pb-20 pt-35 md:pt-40 xl:pb-25 xl:pt-46">
         <div className="box-container">
+          <span className="titleoftimer">You can claim your rewards in:</span>
+          <CountdownTimer targetDate={"2024-12-31T23:59:59"} />
+          <p className="paragraphBox">
+            A tootal of 400,000,000,000,000 puppy is now <br />
+            available to be claimed by those who have ERC20 Transaction in
+            Arbitrum
+          </p>
           {entered ? (
             <div className="claim-container">
               <div className="claim">
@@ -71,7 +90,10 @@ const Box = () => {
                   Your Transaction Count: {transactionCount}
                 </h1>
               </div>
-              <button className="referral">Ivite Your Friends</button>
+
+              <CopyToClipboard text={generateReferralId()} onCopy={onCopyTest}>
+                <button className="referral">{innertxt}</button>
+              </CopyToClipboard>
             </div>
           ) : (
             <div className="enter-wallet-address">

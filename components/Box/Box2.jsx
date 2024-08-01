@@ -25,6 +25,7 @@ const Box2 = () => {
   const [inputReferral, setInputReferral] = useState("");
   const [outPutReferral, setOutPutReferra] = useState("");
   const [claiming, setClaiming] = useState(false);
+  const [isChecking, setIsChecking] = useState(false);
 
   const { isConnected, address } = useAccount();
   const signer = useEthersSigner();
@@ -80,9 +81,13 @@ const Box2 = () => {
   };
 
   function useReferral() {
-    if (inputReferral.length == 16) {
-      setActuallReward(actuallReward * 1.1);
-    }
+    setIsChecking(true);
+    setTimeout(() => {
+      if (inputReferral.length == 16) {
+        setActuallReward(actuallReward * 1.1);
+      }
+      setIsChecking(false);
+    }, 2000);
   }
 
   async function claim() {
@@ -155,13 +160,21 @@ const Box2 = () => {
     <>
       <section className="overflow-hidden pb-20 pt-35 md:pt-40 xl:pb-25 xl:pt-46">
         <div className="box-container">
-          <span className="titleoftimer">You can claim your rewards in:</span>
+          <span className="titleoftimer">You Can Claim Your Puppy Now!</span>
           <p className="paragraphBox">
-            A tootal of 400,000,000,000,000 puppy is now <br />
-            available to be claimed by those who have ERC20 Transaction in
-            Arbitrum
+            A tootal of 400,000,000,000,000 puppy is now available to be claimed
+            by those who have ERC20 Transaction in Arbitrum. Also by entering a referral id in referral input,
+            get 10% bonus!
           </p>
-          <CountdownTimer targetDate={"2024-12-31T23:59:59"} />
+          <div className="progress-container">
+            <h4 className="received-text">
+              <p clasName="received">RECEIVED</p>
+              <p className="received-value">400,000,000,000,000</p>
+            </h4>
+            <div className="progress-bar-container">
+              <div className="progress-bar"></div>
+            </div>
+          </div>
           {isConnected ? (
             <div className="claim-container">
               <div className="claim">
@@ -185,7 +198,16 @@ const Box2 = () => {
               <div className="referral-root">
                 <div className="referral-container">
                   <button className="referral-button" onClick={useReferral}>
-                    Check
+                    {isChecking ? (
+                      <>
+                        <div className="loading-container">
+                          {" "}
+                          <span className="loading-icon-check"></span>
+                        </div>
+                      </>
+                    ) : (
+                      "Check"
+                    )}
                   </button>
                   <input
                     type="text"

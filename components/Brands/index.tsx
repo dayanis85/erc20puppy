@@ -13,6 +13,8 @@ const Brands = () => {
             display: "flex",
             justifyContent: "center",
             marginBottom: "50px",
+            fontFamily: "sans-serif",
+            fontWeight: "bolder",
           }}
         >
           <p className="friends">Our Friends In Other Chains</p>
