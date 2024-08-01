@@ -5211,7 +5211,7 @@ react-native-webview@^11.26.0:
 
 react-scroll@^1.9.0:
   version "1.9.0"
-  resolved "https://registry.npmjs.org/react-scroll/-/react-scroll-1.9.0.tgz"
+  resolved "https://registry.yarnpkg.com/react-scroll/-/react-scroll-1.9.0.tgz#2984006e184afd0e4018f837d127edf5fa8f152c"
   integrity sha512-mamNcaX9Ng+JeSbBu97nWwRhYvL2oba+xR2GxvyXsbDeGP+gkYIKZ+aDMMj/n20TbV9SCWm/H7nyuNTSiXA6yA==
   dependencies:
     lodash.throttle "^4.1.1"

@@ -4,7 +4,7 @@ export default function Head() {
       <title> Puppy Coin </title>
       <meta content="width=device-width, initial-scale=1" name="viewport" />
       <meta name="description" content="PuppyCoin on Arbitrum" />
-      <link rel="icon" href="./public/images/logo.png" />
+      <link rel="icon" href="/Favicon.ico" />
     </>
-  );
+  )
 }
