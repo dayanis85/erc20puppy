@@ -1,4 +1,4 @@
-import { Menu } from "@/types/menu";
+import { Menu } from "@/types/menu"
 
 const menuData: Menu[] = [
   {
@@ -7,25 +7,25 @@ const menuData: Menu[] = [
     newTab: false,
     path: "/",
   },
-  
+
   {
     id: 2,
-    title: "brands",
+    title: "Token",
     newTab: false,
     path: "/Brands",
   },
   {
     id: 3,
-    title: "funFact",
+    title: "Friends",
     newTab: false,
-    path: "/FunFact",
+    path: "/Brands",
   },
   {
     id: 4,
-    title: "integrations",
+    title: "Roadmap",
     newTab: false,
-    path: "/Integration",
+    path: "/Roadmap",
   },
-];
+]
 
-export default menuData;
+export default menuData
