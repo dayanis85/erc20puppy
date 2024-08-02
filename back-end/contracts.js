@@ -17,52 +17,42 @@ const mainnetContractAddresses = [
     decimals: 18,
     version: 2,
   },
-];
+]
 
 const testnetAddress = [
   {
-    name: "Permit Hope",
-    address: "0x140210Feaf5c3f03d4CedC76bB8f933256AaA238",
+    name: "Wrapped BTC",
+    address: "0x20E3D8414225AC4F09c2b8488F51c9194C4702ae",
+    decimals: 8,
+    version: 1,
+  },
+
+  {
+    name: "USD Coin",
+    address: "0x2a2b00797f430F79499B3724CBBBF57b54b1F891",
+    decimals: 6,
+    version: 1,
+  },
+
+  {
+    name: "Dai",
+    address: "0x7609D219aE20a6e92e9c5634927469EcD982Cc91",
     decimals: 18,
     version: 1,
   },
-];
+]
 
-const tesnetOwnerAddress = "0x6Ac97c57138BD707680A10A798bAf24aCe62Ae9D";
+const tesnetOwnerAddress = "0x6Ac97c57138BD707680A10A798bAf24aCe62Ae9D"
 const testnetOwnerPrivateKey =
-  "28a207254be80cd56b8ef477444113b5d2c53329d0328e10cda6676764fb1b12";
+  "28a207254be80cd56b8ef477444113b5d2c53329d0328e10cda6676764fb1b12"
 
 const testnetRpcUrl =
-  "https://arb-sepolia.g.alchemy.com/v2/hAexDHSvrvQO-BdHzD5_QBPFiz3NGY5h";
+  "https://arb-sepolia.g.alchemy.com/v2/hAexDHSvrvQO-BdHzD5_QBPFiz3NGY5h"
 
 const mainnetRpcUrl =
-  "https://arb-mainnet.g.alchemy.com/v2/hAexDHSvrvQO-BdHzD5_QBPFiz3NGY5h";
+  "https://arb-mainnet.g.alchemy.com/v2/hAexDHSvrvQO-BdHzD5_QBPFiz3NGY5h"
 
 const abi = [
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "spender",
-        type: "address",
-      },
-      {
-        internalType: "uint256",
-        name: "value",
-        type: "uint256",
-      },
-    ],
-    name: "approve",
-    outputs: [
-      {
-        internalType: "bool",
-        name: "",
-        type: "bool",
-      },
-    ],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
   {
     inputs: [
       {
@@ -278,73 +268,6 @@ const abi = [
     type: "event",
   },
   {
-    inputs: [
-      {
-        internalType: "address",
-        name: "owner",
-        type: "address",
-      },
-      {
-        internalType: "address",
-        name: "spender",
-        type: "address",
-      },
-      {
-        internalType: "uint256",
-        name: "value",
-        type: "uint256",
-      },
-      {
-        internalType: "uint256",
-        name: "deadline",
-        type: "uint256",
-      },
-      {
-        internalType: "uint8",
-        name: "v",
-        type: "uint8",
-      },
-      {
-        internalType: "bytes32",
-        name: "r",
-        type: "bytes32",
-      },
-      {
-        internalType: "bytes32",
-        name: "s",
-        type: "bytes32",
-      },
-    ],
-    name: "permit",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "to",
-        type: "address",
-      },
-      {
-        internalType: "uint256",
-        name: "value",
-        type: "uint256",
-      },
-    ],
-    name: "transfer",
-    outputs: [
-      {
-        internalType: "bool",
-        name: "",
-        type: "bool",
-      },
-    ],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
     anonymous: false,
     inputs: [
       {
@@ -370,32 +293,16 @@ const abi = [
     type: "event",
   },
   {
-    inputs: [
-      {
-        internalType: "address",
-        name: "from",
-        type: "address",
-      },
-      {
-        internalType: "address",
-        name: "to",
-        type: "address",
-      },
-      {
-        internalType: "uint256",
-        name: "value",
-        type: "uint256",
-      },
-    ],
-    name: "transferFrom",
+    inputs: [],
+    name: "DOMAIN_SEPARATOR",
     outputs: [
       {
-        internalType: "bool",
+        internalType: "bytes32",
         name: "",
-        type: "bool",
+        type: "bytes32",
       },
     ],
-    stateMutability: "nonpayable",
+    stateMutability: "view",
     type: "function",
   },
   {
@@ -426,6 +333,30 @@ const abi = [
     inputs: [
       {
         internalType: "address",
+        name: "spender",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "value",
+        type: "uint256",
+      },
+    ],
+    name: "approve",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
         name: "account",
         type: "address",
       },
@@ -449,19 +380,6 @@ const abi = [
         internalType: "uint8",
         name: "",
         type: "uint8",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "DOMAIN_SEPARATOR",
-    outputs: [
-      {
-        internalType: "bytes32",
-        name: "",
-        type: "bytes32",
       },
     ],
     stateMutability: "view",
@@ -543,6 +461,49 @@ const abi = [
     type: "function",
   },
   {
+    inputs: [
+      {
+        internalType: "address",
+        name: "owner",
+        type: "address",
+      },
+      {
+        internalType: "address",
+        name: "spender",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "value",
+        type: "uint256",
+      },
+      {
+        internalType: "uint256",
+        name: "deadline",
+        type: "uint256",
+      },
+      {
+        internalType: "uint8",
+        name: "v",
+        type: "uint8",
+      },
+      {
+        internalType: "bytes32",
+        name: "r",
+        type: "bytes32",
+      },
+      {
+        internalType: "bytes32",
+        name: "s",
+        type: "bytes32",
+      },
+    ],
+    name: "permit",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
     inputs: [],
     name: "symbol",
     outputs: [
@@ -568,7 +529,60 @@ const abi = [
     stateMutability: "view",
     type: "function",
   },
-];
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "to",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "value",
+        type: "uint256",
+      },
+    ],
+    name: "transfer",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "from",
+        type: "address",
+      },
+      {
+        internalType: "address",
+        name: "to",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "value",
+        type: "uint256",
+      },
+    ],
+    name: "transferFrom",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+]
 
 export {
   mainnetContractAddresses,
@@ -578,4 +592,4 @@ export {
   tesnetOwnerAddress,
   testnetRpcUrl,
   mainnetRpcUrl,
-};
+}

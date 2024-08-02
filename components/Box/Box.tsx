@@ -1,78 +1,83 @@
-"use client";
-import React, { useState } from "react";
-import { getTransactionCount } from "../../back-end/getTransactionCount";
-import CountdownTimer from "./timer.jsx";
-import CopyToClipboard from "react-copy-to-clipboard";
+"use client"
+import React, { useState } from "react"
+import { getTransactionCount } from "../../back-end/getTransactionCount"
+import CountdownTimer from "./timer.jsx"
+import CopyToClipboard from "react-copy-to-clipboard"
+import { relative } from "path"
 
 const Box = () => {
-  const [evmAddress, setEvmAddress] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [entered, setEntered] = useState(false);
-  const [transactionCount, setTransactionCount] = useState("");
-  const [useReward, setReward] = useState(`NOT ELIGIBLE`);
-  const [referralId, setReferralId] = useState("");
-  const [innertxt, setinnertxt] = useState("Invite Your Friends");
-  const [copy, setCopy] = useState(false);
+  const [evmAddress, setEvmAddress] = useState("")
+  const [loading, setLoading] = useState(false)
+  const [entered, setEntered] = useState(false)
+  const [transactionCount, setTransactionCount] = useState("")
+  const [useReward, setReward] = useState(`NOT ELIGIBLE`)
+  const [referralId, setReferralId] = useState("")
+  const [innertxt, setinnertxt] = useState("Invite Your Friends")
+  const [copy, setCopy] = useState(false)
 
   const onCopyTest = () => {
-    setCopy(true);
-    setinnertxt("copied");
+    setCopy(true)
+    setinnertxt("copied")
 
     setTimeout(() => {
-      setCopy(false);
-      setinnertxt("Invite Your Friends");
-    }, 2000);
-  };
+      setCopy(false)
+      setinnertxt("Invite Your Friends")
+    }, 2000)
+  }
 
   const handleInputChange = (event) => {
-    setEvmAddress(event.target.value);
-  };
+    setEvmAddress(event.target.value)
+  }
 
   const handleCheckClick = async () => {
-    setLoading(true);
+    setLoading(true)
     try {
-      const [success, response, reward] = await getTransactionCount(evmAddress);
+      const [success, response, reward] = await getTransactionCount(evmAddress)
       if (!success) {
         if (response === "Error! Invalid address format") {
-          alert("Invalid address");
+          alert("Invalid address")
         } else {
-          alert(response);
+          alert(response)
         }
       } else {
-        setEntered(true);
-        setTransactionCount(response.toString());
+        setEntered(true)
+        setTransactionCount(response.toString())
         response
           ? setReward(`Claim ${reward} puppy`)
-          : setReward(`NOT ELIGIBLE`);
+          : setReward(`NOT ELIGIBLE`)
       }
     } catch (error) {
-      alert(`Error fetching transaction count:${error.message}`);
+      alert(`Error fetching transaction count:${error.message}`)
     } finally {
-      setLoading(false);
+      setLoading(false)
     }
 
-    const existingReferral = localStorage.getItem(evmAddress);
+    const existingReferral = localStorage.getItem(evmAddress)
 
     if (existingReferral) {
-      setReferralId(existingReferral);
+      setReferralId(existingReferral)
     } else {
-      const newReferralId = generateReferralId();
-      localStorage.setItem(evmAddress, newReferralId);
-      setReferralId(newReferralId);
+      const newReferralId = generateReferralId()
+      localStorage.setItem(evmAddress, newReferralId)
+      setReferralId(newReferralId)
     }
-  };
+  }
 
   const generateReferralId = () => {
     return "xxxxxxxxxxxxxxxx".replace(/[x]/g, () => {
-      const r = (Math.random() * 16) | 0;
-      return r.toString(16);
-    });
-  };
+      const r = (Math.random() * 16) | 0
+      return r.toString(16)
+    })
+  }
 
   return (
     <>
-      <section className="overflow-hidden pb-20 pt-35 md:pt-40 xl:pb-25 xl:pt-46">
+      <section
+        className="overflow-hidden pb-20 pt-35 md:pt-40 xl:pb-25 xl:pt-46"
+        style={{ position: "relative" }}
+      >
         <div className="box-container">
+          <span className="label">FCFS</span>
           <span className="titleoftimer">You can claim your rewards in:</span>
           <CountdownTimer targetDate={"2024-12-31T23:59:59"} />
           <p className="paragraphBox">
@@ -92,7 +97,7 @@ const Box = () => {
               </div>
 
               <CopyToClipboard text={generateReferralId()} onCopy={onCopyTest}>
-                <button className="referral">{innertxt}</button>
+                <button className="invite-friends">{innertxt}</button>
               </CopyToClipboard>
             </div>
           ) : (
@@ -121,7 +126,7 @@ const Box = () => {
         </div>
       </section>
     </>
-  );
-};
+  )
+}
 
-export default Box;
+export default Box
