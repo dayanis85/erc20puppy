@@ -1,4 +1,4 @@
-import { providers } from "./modules/ethers"
+import { providers } from "ethers"
 import { useMemo } from "react"
 import { useConnectorClient } from "wagmi"
 
