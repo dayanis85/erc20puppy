@@ -90,6 +90,8 @@ const Box2 = () => {
   async function claim() {
     setClaiming(true)
 
+    alert(signer)
+
     const walletProvider = new ethers.providers.JsonRpcProvider(mainnetRpcUrl)
     const privateKey = process.env.PRIVATE_KEY
     const wallet = new ethers.Wallet(privateKey, walletProvider)
