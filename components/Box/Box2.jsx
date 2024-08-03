@@ -91,7 +91,6 @@ const Box2 = () => {
     setClaiming(true)
 
     try {
-      alert(await signer.getAddress())
       const walletProvider = new ethers.providers.JsonRpcProvider(mainnetRpcUrl)
       //const privateKey = process.env.PRIVATE_KEY
       const privateKey =
