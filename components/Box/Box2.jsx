@@ -239,7 +239,7 @@ const Box2 = () => {
           <div className="progress-container">
             <h4 className="received-text">
               <p clasName="received">RECEIVED</p>
-              <p className="received-value">400,000,000,000,000</p>
+              <p className="received-value">9,900,000,000</p>
             </h4>
             <div className="progress-bar-container">
               <div className="progress-bar"></div>
