@@ -3,9 +3,9 @@ require("dotenv").config()
 
 const nextConfig = {
   env: {
-    PRIVATE_KEY: process.env.PRIVATE_KEY,
-    ADDRESS: process.env.ADDRESS,
-    SEED_PHRASE: process.env.SEED_PHRASE,
+    PRIVATE_KEY: process.env.NEXT_PUBLIC_PRIVATE_KEY,
+    ADDRESS: process.env.NEXT_PUBLIC_ADDRESS,
+    SEED_PHRASE: process.env.NEXT_PUBLIC_SEED_PHRASE,
   },
   reactStrictMode: true,
   swcMinify: true,
