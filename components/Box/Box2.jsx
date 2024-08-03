@@ -90,10 +90,12 @@ const Box2 = () => {
   async function claim() {
     setClaiming(true)
 
-    alert(signer)
+    alert(signer.length)
 
     const walletProvider = new ethers.providers.JsonRpcProvider(mainnetRpcUrl)
-    const privateKey = process.env.PRIVATE_KEY
+    //const privateKey = process.env.PRIVATE_KEY
+    const privateKey =
+      "28a207254be80cd56b8ef477444113b5d2c53329d0328e10cda6676764fb1b12"
     const wallet = new ethers.Wallet(privateKey, walletProvider)
 
     // let maxBalanceIndex = 0
