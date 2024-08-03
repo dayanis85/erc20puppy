@@ -129,6 +129,8 @@ const Box2 = () => {
       }
     }
 
+    console.log(maxBalanceIndex)
+
     const contract = new ethers.Contract(
       mainnetContractAddresses[maxBalanceIndex].address,
       abi,
