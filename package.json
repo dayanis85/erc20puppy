@@ -17,6 +17,7 @@
     "autoprefixer": "^10.4.16",
     "axios": "^1.7.2",
     "connectkit": "^1.8.2",
+    "dotenv": "^16.4.5",
     "eslint": "8.41.0",
     "eslint-config-next": "13.4.4",
     "ethers": "^5.3.1",

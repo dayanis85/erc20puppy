@@ -4,23 +4,7 @@ import { ConnectKitButton } from "connectkit"
 
 import styled from "styled-components"
 
-const StyledButton1 = styled.button`
-  cursor: not-allowed;
-  position: relative;
-  display: inline-block;
-  padding: 14px 24px;
-  border: 2px solid;
-  border-color: rgb(51, 134, 251);
-  background-color: rgb(28, 33, 60);
-  color: white;
-  background: dark;
-  font-size: 16px;
-  font-weight: 500;
-  border-radius: 10rem;
-  opacity: 0.7;
-`
-
-const StyledButton2 = styled.button`
+const StyledButton = styled.button`
   cursor: pointer;
   position: relative;
   display: inline-block;
@@ -50,9 +34,9 @@ export const NavConnectButton2 = () => {
     <ConnectKitButton.Custom>
       {({ isConnected, show, truncatedAddress, ensName }) => {
         return (
-          <StyledButton1 onClick={show}>
+          <StyledButton onClick={show}>
             {isConnected ? ensName ?? truncatedAddress : "Connect Wallet"}
-          </StyledButton1>
+          </StyledButton>
         )
       }}
     </ConnectKitButton.Custom>

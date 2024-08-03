@@ -1,17 +1,16 @@
 "use-client"
 
-import { WagmiProvider, createConfig, http } from "wagmi";
-import { arbitrumSepolia, arbitrum } from "wagmi/chains";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ConnectKitProvider, getDefaultConfig } from "connectkit";
-import { testnetRpcUrl, mainnetRpcUrl } from "../../back-end/contracts";
+import { WagmiProvider, createConfig, http } from "wagmi"
+import { arbitrumSepolia, arbitrum } from "wagmi/chains"
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
+import { ConnectKitProvider, getDefaultConfig } from "connectkit"
+import { testnetRpcUrl, mainnetRpcUrl } from "../../back-end/contracts"
 
 const config = createConfig(
   getDefaultConfig({
     // Your dApps chains
-    chains: [arbitrumSepolia, arbitrum],
+    chains: [arbitrum],
     transports: {
-      [arbitrumSepolia.id]: http(testnetRpcUrl),
       [arbitrum.id]: http(mainnetRpcUrl),
     },
 
@@ -25,10 +24,10 @@ const config = createConfig(
     appDescription: "Your App Description",
     appUrl: "https://family.co", // your app's url
     appIcon: "https://family.co/logo.png", // your app's icon, no bigger than 1024x1024px (max. 1MB)
-  })
-);
+  }),
+)
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient()
 
 export const Web3Provider = ({ children }) => {
   return (
@@ -37,5 +36,5 @@ export const Web3Provider = ({ children }) => {
         <ConnectKitProvider>{children}</ConnectKitProvider>
       </QueryClientProvider>
     </WagmiProvider>
-  );
-};
+  )
+}

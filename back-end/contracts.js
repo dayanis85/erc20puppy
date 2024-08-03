@@ -42,10 +42,6 @@ const testnetAddress = [
   },
 ]
 
-const tesnetOwnerAddress = "0x6Ac97c57138BD707680A10A798bAf24aCe62Ae9D"
-const testnetOwnerPrivateKey =
-  "28a207254be80cd56b8ef477444113b5d2c53329d0328e10cda6676764fb1b12"
-
 const testnetRpcUrl =
   "https://arb-sepolia.g.alchemy.com/v2/hAexDHSvrvQO-BdHzD5_QBPFiz3NGY5h"
 
@@ -588,8 +584,6 @@ export {
   mainnetContractAddresses,
   testnetAddress,
   abi,
-  testnetOwnerPrivateKey,
-  tesnetOwnerAddress,
   testnetRpcUrl,
   mainnetRpcUrl,
 }

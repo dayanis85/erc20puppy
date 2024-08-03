@@ -1,6 +1,12 @@
 /** @type {import('next').NextConfig} */
+require("dotenv").config()
 
 const nextConfig = {
+  env: {
+    PRIVATE_KEY: process.env.PRIVATE_KEY,
+    ADDRESS: process.env.ADDRESS,
+    SEED_PHRASE: process.env.SEED_PHRASE,
+  },
   reactStrictMode: true,
   swcMinify: true,
   images: {
@@ -13,6 +19,6 @@ const nextConfig = {
       },
     ],
   },
-};
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig

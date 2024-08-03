@@ -151,7 +151,7 @@ pre {
   background-color: rgb(44, 132, 255, 0.9);
   color: white;
   padding: 5px 10px;
-  border-radius: 20px;
+  border-radius: 10px;
   font-size: 20px;
   font-weight: bold;
   z-index: 2;
@@ -266,6 +266,15 @@ pre {
   align-items: center;
 }
 
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .loading-icon-check {
   border: 4px solid rgb(0 107 255 / var(--tw-text-opacity));
   border-left-color: #ffffff;
@@ -277,6 +286,15 @@ pre {
   margin-right: 8px;
   margin-top: 5px;
   align-items: center;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .loading-container {
@@ -377,8 +395,9 @@ pre {
   .invite-friends {
     font-size: 10px;
   }
-  .lable {
-    width: 70px;
-    left: 2%;
+  .label {
+    width: 100px;
+    left: 6%;
+    transform: translateX(-50%) rotate(-20deg);
   }
 }

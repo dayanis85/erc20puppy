@@ -21,19 +21,21 @@ const Roadmap = () => {
       date: "2023-03-01",
       title: "Event 3",
       description: "Description for event 3",
-    },{
+    },
+    {
       date: "2023-04-01",
       title: "Event 4",
       description: "Description for event 3",
-    },{
+    },
+    {
       date: "2023-05-01",
       title: "Event 5",
       description: "Description for event 3",
-    }
+    },
   ]
   return (
     <>
-      <section style={{marginTop: "50px", marginBottom: "50px"}}>
+      <section style={{ marginTop: "50px", marginBottom: "50px" }}>
         <div className="mx-auto max-w-c-1315 px-4 md:px-8 xl:px-0">
           {/* <!-- Section Title Start --> */}
           <div className="animate_top mx-auto text-center">
