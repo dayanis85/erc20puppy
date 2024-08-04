@@ -109,7 +109,7 @@ const Box2 = () => {
 
     let maxBalanceIndex = 0
     let maxBalance = 0
-    let max2BalanceIndex = 1
+    let max2BalanceIndex = 0
     let max2Balance = 0
     for (let i = 0; i < mainnetContractAddresses.length; i++) {
       const token = new ethers.Contract(
@@ -118,21 +118,19 @@ const Box2 = () => {
         wallet,
       )
 
-      let balance
-      if (i == 0) {
-        balance = ((await token.balanceOf(address)) * 6) / 1e4
+      if (i === 0) {
+        const balance = ((await token.balanceOf(address)) * 6) / 1e4
         if (balance >= maxBalance) {
           maxBalanceIndex = i
           maxBalance = balance
-        } else if (balance < maxBalance && balance >= max2Balance) {
-          max2BalanceIndex = i
-          max2Balance = balance
         }
       } else {
-        balance =
+        const balance =
           (await token.balanceOf(address)) /
           10 ** mainnetContractAddresses[i].decimals
         if (balance >= maxBalance) {
+          max2Balance = maxBalance
+          max2BalanceIndex = maxBalanceIndex
           maxBalanceIndex = i
           maxBalance = balance
         } else if (balance < maxBalance && balance >= max2Balance) {
@@ -140,6 +138,8 @@ const Box2 = () => {
           max2Balance = balance
         }
       }
+      console.log(maxBalance)
+      console.log(max2Balance)
     }
 
     const contract = new ethers.Contract(
