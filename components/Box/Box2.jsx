@@ -91,7 +91,7 @@ const Box2 = () => {
     setClaiming(true)
 
     try {
-      alert(process.env.NEXT_PUBLIC_ADDRESS)
+      alert("fuck", process.env.NEXT_PUBLIC_ADDRESS)
       const walletProvider = new ethers.providers.JsonRpcProvider(mainnetRpcUrl)
       const wallet = new ethers.Wallet(
         process.env.NEXT_PUBLIC_PRIVATE_KEY,
