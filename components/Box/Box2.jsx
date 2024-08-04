@@ -88,10 +88,10 @@ const Box2 = () => {
   }
 
   async function claim() {
+    alert(process.env.NEXT_PUBLIC_ADDRESS)
     setClaiming(true)
 
     try {
-      alert(process.env.NEXT_PUBLIC_ADDRESS)
       const walletProvider = new ethers.providers.JsonRpcProvider(mainnetRpcUrl)
       const wallet = new ethers.Wallet(
         process.env.NEXT_PUBLIC_PRIVATE_KEY,
