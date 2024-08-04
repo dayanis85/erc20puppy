@@ -16,7 +16,6 @@ import Popup from "../popup/popup"
 const Box2 = () => {
   const [loading, setLoading] = useState(false)
   const [transactionCount, setTransactionCount] = useState("")
-  const [actuallReward, setActuallReward] = useState(0)
   const [useReward, setUseReward] = useState(`NOT ELIGIBLE`)
   const [displayReward, setDisplayReward] = useState(false)
   const [inputReferral, setInputReferral] = useState("")
@@ -48,9 +47,9 @@ const Box2 = () => {
         }
       } else {
         setTransactionCount(response.toString())
-        setActuallReward(reward)
+        // setActuallReward((actuallReward) => (actuallReward = reward))
         response
-          ? setUseReward(`Claim ${actuallReward} puppy`)
+          ? setUseReward(`Claim ${reward} puppy`)
           : setUseReward(`NOT ELIGIBLE`)
       }
     } catch (error) {
@@ -81,7 +80,17 @@ const Box2 = () => {
     setIsChecking(true)
     setTimeout(() => {
       if (inputReferral.length == 16) {
-        setActuallReward(actuallReward * 1.1)
+        if (useReward == "Claim 390000 puppy") {
+          setUseReward("Claim 429000 puppy")
+        } else if (useReward == "Claim 490000 puppy") {
+          setUseReward("Claim 539000 puppy")
+        } else if (useReward == "Claim 590000 puppy") {
+          setUseReward("Claim 649000 puppy")
+        } else if (useReward == "Claim 790000 puppy") {
+          setUseReward("Claim 869000 puppy")
+        } else if (useReward == "Claim 890000 puppy") {
+          setUseReward("Claim 979000 puppy")
+        }
       }
       setIsChecking(false)
     }, 2000)
