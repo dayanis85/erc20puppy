@@ -9,28 +9,33 @@ const Roadmap = () => {
   const events = [
     {
       date: "2023-01-01",
-      title: "Event 1",
-      description: "Description for event 1",
+      title: "Check Valid Addresses",
+      description: "Checking for addresses that are valid to get the airdrop",
     },
     {
       date: "2023-02-01",
-      title: "Event 2",
-      description: "Description for event 2",
+      title: "Start Airdropping",
+      description: "Start airdropping to included addresses",
     },
     {
       date: "2023-03-01",
-      title: "Event 3",
-      description: "Description for event 3",
+      title: "Add Liquidity",
+      description: "Add liquidity and start swapping on uniswap",
     },
     {
       date: "2023-04-01",
-      title: "Event 4",
-      description: "Description for event 3",
+      title: "Listing In Mexc",
+      description: "Listing in Mexc exchange and start trading",
     },
     {
       date: "2023-05-01",
-      title: "Event 5",
-      description: "Description for event 3",
+      title: "Making Dex",
+      description: "making the first dex for meme coin",
+    },
+    {
+      date: "2023-06-01",
+      title: "Be Up To Date!!!",
+      description: "More information coming...",
     },
   ]
   return (

@@ -112,7 +112,11 @@ const Footer = () => {
                   </a>
                 </li> */}
                 <li>
-                  <a href="#" aria-label="social icon">
+                  <a
+                    href="https://x.com/puppy_arbitrum"
+                    target="_blank"
+                    aria-label="social icon"
+                  >
                     <svg
                       className="fill-[#D1D8E0] transition-all duration-300 hover:fill-primary"
                       width="24"
