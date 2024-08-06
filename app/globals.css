@@ -193,6 +193,11 @@ pre {
   outline: none;
   border-radius: 10px;
   padding-left: 5px;
+  font-size: 14px;
+}
+
+.enter-wallet-address-input::placeholder{
+  opacity: 0.5
 }
 
 .claim-container {

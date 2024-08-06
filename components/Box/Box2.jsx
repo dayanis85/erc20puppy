@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { getTransactionCount } from "../../back-end/getTransactionCount"
 import { BoxConnectButton } from "../connect-button/BoxConnectButton"
 import { useAccount } from "wagmi"
@@ -23,6 +23,12 @@ const Box2 = () => {
   const [outPutReferral, setOutPutReferra] = useState("")
   const [claiming, setClaiming] = useState(false)
   const [isChecking, setIsChecking] = useState(false)
+  const [width, setWidth] = useState(0)
+
+  useEffect(() => {
+    const timer = setTimeout(() => setWidth(20), 1000)
+    return () => clearTimeout(timer)
+  }, [])
 
   const { isConnected, address } = useAccount()
   const signer = useEthersSigner()
@@ -259,7 +265,10 @@ const Box2 = () => {
               <p className="received-value">9,900,000,000</p>
             </h4>
             <div className="progress-bar-container">
-              <div className="progress-bar"></div>
+              <div
+                className="progress-bar"
+                style={{ width: `${width}%` }}
+              ></div>
             </div>
           </div>
           {isConnected ? (

@@ -112,11 +112,12 @@ const Box = () => {
                     <span className="loading-icon"></span>
                   </>
                 ) : (
-                  "Enter"
+                  "Check"
                 )}
               </button>
               <input
                 className="enter-wallet-address-input"
+                placeholder="Enter Your EVM Address"
                 type="text"
                 value={evmAddress}
                 onChange={handleInputChange}
