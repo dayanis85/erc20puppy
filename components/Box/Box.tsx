@@ -81,7 +81,7 @@ const Box = () => {
           <span className="titleoftimer">You can claim your rewards in:</span>
           <CountdownTimer targetDate={"2024-12-31T23:59:59"} />
           <p className="paragraphBox">
-            A tootal of 400,000,000,000,000 puppy is now <br />
+            A tootal of 9,900,000,000 puppy is now <br />
             available to be claimed by those who have ERC20 Transaction in
             Arbitrum
           </p>
