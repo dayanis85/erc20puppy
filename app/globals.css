@@ -196,8 +196,8 @@ pre {
   font-size: 14px;
 }
 
-.enter-wallet-address-input::placeholder{
-  opacity: 0.5
+.enter-wallet-address-input::placeholder {
+  opacity: 0.5;
 }
 
 .claim-container {
