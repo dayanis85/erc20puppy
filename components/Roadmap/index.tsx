@@ -8,32 +8,32 @@ import styles from "./Roadmap.module.css"
 const Roadmap = () => {
   const events = [
     {
-      date: "2023-01-01",
+      date: "2024-20-08",
       title: "Check Valid Addresses",
       description: "Checking for addresses that are valid to get the airdrop",
     },
     {
-      date: "2023-02-01",
+      date: "2023-26-08",
       title: "Start Airdropping",
       description: "Start airdropping to included addresses",
     },
     {
-      date: "2023-03-01",
+      date: "2023-26-08",
       title: "Add Liquidity",
       description: "Add liquidity and start swapping on uniswap",
     },
     {
-      date: "2023-04-01",
+      date: "2023-01-09",
       title: "Listing In Mexc",
       description: "Listing in Mexc exchange and start trading",
     },
     {
-      date: "2023-05-01",
+      date: "2023-12-09",
       title: "Making Dex",
       description: "making the first dex for meme coin",
     },
     {
-      date: "2023-06-01",
+      date: "2023-15-09",
       title: "Be Up To Date!!!",
       description: "More information coming...",
     },
