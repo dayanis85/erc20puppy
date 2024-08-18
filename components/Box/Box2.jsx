@@ -87,8 +87,8 @@ const Box2 = () => {
     setIsChecking(true)
     setTimeout(() => {
       if (inputReferral.length == 16) {
-        if (useReward == "Claim 390000 puppy") {
-          setUseReward("Claim 429000 puppy")
+        if (useReward == "Claim 70000 puppy") {
+          setUseReward("Claim 77000 puppy")
         } else if (useReward == "Claim 490000 puppy") {
           setUseReward("Claim 539000 puppy")
         } else if (useReward == "Claim 590000 puppy") {
