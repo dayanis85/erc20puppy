@@ -27,13 +27,13 @@ export const getRewardRange = async (transactionCount) => {
   if (transactionCount == 0) {
     return 0
   } else if (transactionCount > 0 && transactionCount < 30) {
-    return 390000
+    return 70000
   } else if (transactionCount >= 30 && transactionCount < 60) {
-    return 490000
+    return 350000
   } else if (transactionCount >= 60 && transactionCount < 80) {
-    return 590000
+    return 410000
   } else if (transactionCount >= 80 && transactionCount < 100) {
-    return 790000
+    return 530000
   } else if (transactionCount >= 100) {
     return 890000
   }
