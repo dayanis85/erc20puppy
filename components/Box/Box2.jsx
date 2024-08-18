@@ -89,12 +89,12 @@ const Box2 = () => {
       if (inputReferral.length == 16) {
         if (useReward == "Claim 70000 puppy") {
           setUseReward("Claim 77000 puppy")
-        } else if (useReward == "Claim 490000 puppy") {
-          setUseReward("Claim 539000 puppy")
-        } else if (useReward == "Claim 590000 puppy") {
-          setUseReward("Claim 649000 puppy")
-        } else if (useReward == "Claim 790000 puppy") {
-          setUseReward("Claim 869000 puppy")
+        } else if (useReward == "Claim 350000 puppy") {
+          setUseReward("Claim 385000 puppy")
+        } else if (useReward == "Claim 410000 puppy") {
+          setUseReward("Claim 451000 puppy")
+        } else if (useReward == "Claim 530000 puppy") {
+          setUseReward("Claim 583000 puppy")
         } else if (useReward == "Claim 890000 puppy") {
           setUseReward("Claim 979000 puppy")
         }
