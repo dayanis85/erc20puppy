@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <>
       <main>
-        <Box2 />
+        <Box />
         <FunFact />
         <Brands />
         <Integration />
