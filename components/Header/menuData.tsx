@@ -12,7 +12,7 @@ const menuData: Menu[] = [
     id: 2,
     title: "Token",
     newTab: false,
-    path: "https://arbiscan.io/token/0x32d26d7815E1De9faDC379aAbc304eAB11571B3d",
+    path: "https://arbiscan.io/address/0x5a739D7aF718f105a41c2A5466812227341ba4e9",
   },
   {
     id: 3,
