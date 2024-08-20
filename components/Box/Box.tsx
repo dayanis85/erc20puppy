@@ -79,7 +79,7 @@ const Box = () => {
         <div className="box-container">
           <span className="label">FCFS</span>
           <span className="titleoftimer">You can claim your rewards in:</span>
-          <CountdownTimer targetDate={"2024-08-26T17:30:00"} />
+          <CountdownTimer targetDate={"2024-08-20T17:30:00"} />
           <p className="paragraphBox">
             A tootal of 9,900,000,000 puppy is now <br />
             available to be claimed by those who have ERC20 Transaction in
