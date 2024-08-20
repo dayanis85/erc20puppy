@@ -24,13 +24,13 @@ const Roadmap = () => {
     },
     {
       date: "2023-01-09",
-      title: "Listing In Mexc",
-      description: "Listing in Mexc exchange and start trading",
+      title: "Listing on Mexc",
+      description: "Listing on Mexc exchange and start trading",
     },
     {
       date: "2023-12-09",
       title: "Making Dex",
-      description: "making the first dex for meme coin",
+      description: "creating the first dex for meme coin",
     },
     {
       date: "2023-15-09",
