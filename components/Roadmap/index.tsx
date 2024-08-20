@@ -14,7 +14,7 @@ const Roadmap = () => {
     },
     {
       date: "2023-26-08",
-      title: "Start Airdropping",
+      title: "Start claiming",
       description: "Start airdropping to included addresses",
     },
     {
