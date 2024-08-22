@@ -51,23 +51,37 @@ const Box = () => {
     } finally {
       setLoading(false)
     }
-
-    const existingReferral = localStorage.getItem(evmAddress)
-
-    if (existingReferral) {
-      setReferralId(existingReferral)
-    } else {
-      const newReferralId = generateReferralId()
-      localStorage.setItem(evmAddress, newReferralId)
-      setReferralId(newReferralId)
-    }
+    generateReferralId(evmAddress)
   }
 
-  const generateReferralId = () => {
-    return "xxxxxxxxxxxxxxxx".replace(/[x]/g, () => {
-      const r = (Math.random() * 16) | 0
-      return r.toString(16)
-    })
+const generateReferralId = (walletAddress) => {
+    walletAddress = walletAddress.toLowerCase()
+    const replacementMap = {
+      "0": "f",
+      "1": "e",
+      "2": "d",
+      "3": "c",
+      "4": "b",
+      "5": "a",
+      "6": "9",
+      "7": "8",
+      "8": "7",
+      "9": "6",
+      a: "5",
+      b: "4",
+      c: "3",
+      d: "2",
+      e: "1",
+      f: "0",
+    }
+    const last16 = walletAddress.slice(-16)
+    const referralId = last16
+      .split("")
+      .map((char) => replacementMap[char] || char)
+      .join("")
+    setReferralId(referralId)
+    return referralId
+  }
   }
 
   return (
@@ -96,7 +110,7 @@ const Box = () => {
                 </h1>
               </div>
 
-              <CopyToClipboard text={referralId()} onCopy={onCopyTest}>
+              <CopyToClipboard text={referralId} onCopy={onCopyTest}>
                 <button className="invite-friends">{innertxt}</button>
               </CopyToClipboard>
             </div>
