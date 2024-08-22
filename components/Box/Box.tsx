@@ -96,7 +96,7 @@ const Box = () => {
                 </h1>
               </div>
 
-              <CopyToClipboard text={generateReferralId()} onCopy={onCopyTest}>
+              <CopyToClipboard text={referralId()} onCopy={onCopyTest}>
                 <button className="invite-friends">{innertxt}</button>
               </CopyToClipboard>
             </div>
