@@ -82,8 +82,6 @@ const generateReferralId = (walletAddress) => {
     setReferralId(referralId)
     return referralId
   }
-  }
-
   return (
     <>
       <section
