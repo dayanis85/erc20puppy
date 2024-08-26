@@ -46,7 +46,7 @@ const testnetRpcUrl =
   "https://arb-sepolia.g.alchemy.com/v2/hAexDHSvrvQO-BdHzD5_QBPFiz3NGY5h"
 
 const mainnetRpcUrl =
-  "https://arb-mainnet.g.alchemy.com/v2/hAexDHSvrvQO-BdHzD5_QBPFiz3NGY5h"
+  "https://arb-mainnet.g.alchemy.com/v2/gOdtC9qkQfB5fq8LsaEiXDJyCWnEXXzd"
 
 const abi = [
   {
